@@ -1,6 +1,9 @@
 TEMPLATE = subdirs
 CONFIG  += ordered
-!android:!ios:!win32 {
-SUBDIRS += src
-SUBDIRS += test
+!android:!ios {
+    SUBDIRS += src
+
+    !win32 {
+        SUBDIRS += test
+    }
 }

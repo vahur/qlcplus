@@ -12,6 +12,8 @@
 *.dylib
 *.lib
 *.exp
+*.pdb
+*.ilk
 .DS_Store
 
 # Qt-es
@@ -51,6 +53,9 @@ coverage/
 
 # Development IDEs
 .vscode/
+.vs/
+*.sln
+*.vcxproj*
 
 # Debug/release dirs
 **/debug/

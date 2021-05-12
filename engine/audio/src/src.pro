@@ -14,7 +14,8 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 
 CONFIG += link_pkgconfig
 
-INCLUDEPATH += ../../src ../../../plugins/interfaces
+INCLUDEPATH += ../../src
+INCLUDEPATH += ../../../plugins/interfaces
 
 HEADERS += audio.h \
            audiodecoder.h \

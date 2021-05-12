@@ -245,34 +245,35 @@ QMAKE_CLEAN += $$CONFIGFILE
 QMAKE_DISTCLEAN += $$CONFIGFILE
 
 macx|win32|appimage {
-    conf.commands += echo \"$$LITERAL_HASH ifndef CONFIG_H\" > $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define CONFIG_H\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define APPNAME \\\"$$APPNAME\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define FXEDNAME \\\"$$FXEDNAME\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define APPVERSION \\\"$$APPVERSION\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define DOCSDIR \\\"$$DOCSDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define INPUTPROFILEDIR \\\"$$INPUTPROFILEDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define USERQLCPLUSDIR \\\"$$USERDATADIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define USERINPUTPROFILEDIR \\\"$$USERINPUTPROFILEDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define MIDITEMPLATEDIR \\\"$$MIDITEMPLATEDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define USERMIDITEMPLATEDIR \\\"$$USERMIDITEMPLATEDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define MODIFIERSTEMPLATEDIR \\\"$$MODIFIERSTEMPLATEDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define USERMODIFIERSTEMPLATEDIR \\\"$$USERMODIFIERSTEMPLATEDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define FIXTUREDIR \\\"$$FIXTUREDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define USERFIXTUREDIR \\\"$$USERFIXTUREDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define PLUGINDIR \\\"$$PLUGINDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define AUDIOPLUGINDIR \\\"$$AUDIOPLUGINDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define TRANSLATIONDIR \\\"$$TRANSLATIONDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define RGBSCRIPTDIR \\\"$$RGBSCRIPTDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define USERRGBSCRIPTDIR \\\"$$USERRGBSCRIPTDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define GOBODIR \\\"$$GOBODIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define WEBFILESDIR \\\"$$WEBFILESDIR\\\"\" >> $$CONFIGFILE &&
+    conf.commands += "$$LITERAL_HASH ifndef CONFIG_H"
+    conf.commands += "$$LITERAL_HASH define CONFIG_H"
+    conf.commands += "$$LITERAL_HASH define APPNAME \"$$APPNAME\""
+    conf.commands += "$$LITERAL_HASH define FXEDNAME \"$$FXEDNAME\""
+    conf.commands += "$$LITERAL_HASH define APPVERSION \"$$APPVERSION\""
+    conf.commands += "$$LITERAL_HASH define DOCSDIR \"$$DOCSDIR\""
+    conf.commands += "$$LITERAL_HASH define INPUTPROFILEDIR \"$$INPUTPROFILEDIR\""
+    conf.commands += "$$LITERAL_HASH define USERQLCPLUSDIR \"$$USERDATADIR\""
+    conf.commands += "$$LITERAL_HASH define USERINPUTPROFILEDIR \"$$USERINPUTPROFILEDIR\""
+    conf.commands += "$$LITERAL_HASH define MIDITEMPLATEDIR \"$$MIDITEMPLATEDIR\""
+    conf.commands += "$$LITERAL_HASH define USERMIDITEMPLATEDIR \"$$USERMIDITEMPLATEDIR\""
+    conf.commands += "$$LITERAL_HASH define MODIFIERSTEMPLATEDIR \"$$MODIFIERSTEMPLATEDIR\""
+    conf.commands += "$$LITERAL_HASH define USERMODIFIERSTEMPLATEDIR \"$$USERMODIFIERSTEMPLATEDIR\""
+    conf.commands += "$$LITERAL_HASH define FIXTUREDIR \"$$FIXTUREDIR\""
+    conf.commands += "$$LITERAL_HASH define USERFIXTUREDIR \"$$USERFIXTUREDIR\""
+    conf.commands += "$$LITERAL_HASH define PLUGINDIR \"$$PLUGINDIR\""
+    conf.commands += "$$LITERAL_HASH define AUDIOPLUGINDIR \"$$AUDIOPLUGINDIR\""
+    conf.commands += "$$LITERAL_HASH define TRANSLATIONDIR \"$$TRANSLATIONDIR\""
+    conf.commands += "$$LITERAL_HASH define RGBSCRIPTDIR \"$$RGBSCRIPTDIR\""
+    conf.commands += "$$LITERAL_HASH define USERRGBSCRIPTDIR \"$$USERRGBSCRIPTDIR\""
+    conf.commands += "$$LITERAL_HASH define GOBODIR \"$$GOBODIR\""
+    conf.commands += "$$LITERAL_HASH define WEBFILESDIR \"$$WEBFILESDIR\""
 qmlui {
-    conf.commands += echo \"$$LITERAL_HASH define MESHESDIR \\\"$$MESHESDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define COLORFILTERSDIR \\\"$$COLORFILTERSDIR\\\"\" >> $$CONFIGFILE &&
-    conf.commands += echo \"$$LITERAL_HASH define USERCOLORFILTERSDIR \\\"$$USERCOLORFILTERSDIR\\\"\" >> $$CONFIGFILE &&
+    conf.commands += "$$LITERAL_HASH define MESHESDIR \"$$MESHESDIR\""
+    conf.commands += "$$LITERAL_HASH define COLORFILTERSDIR \"$$COLORFILTERSDIR\""
+    conf.commands += "$$LITERAL_HASH define USERCOLORFILTERSDIR \"$$USERCOLORFILTERSDIR\""
 }
-    conf.commands += echo \"$$LITERAL_HASH endif\" >> $$CONFIGFILE
+    conf.commands += "$$LITERAL_HASH endif"
+    write_file($$CONFIGFILE, conf.commands)
 }
 else:unix|android|ios {
     conf.commands += echo \"$$LITERAL_HASH ifndef CONFIG_H\" > $$CONFIGFILE &&
