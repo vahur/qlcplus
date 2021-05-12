@@ -18,6 +18,10 @@ DEPENDPATH  += ../ui/src
 QMAKE_LIBDIR += ../engine/src
 LIBS    += -lqlcplusengine
 
+win32 {
+    LIBS += -ladvapi32
+}
+
 # Sources
 RESOURCES    += ../ui/src/qlcui.qrc
 win32:RC_FILE = fixtureeditor.rc

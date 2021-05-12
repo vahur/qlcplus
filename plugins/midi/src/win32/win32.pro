@@ -6,8 +6,7 @@ TARGET   = midiplugin
 
 CONFIG      += plugin
 INCLUDEPATH += ../common
-LIBS        += -lwinmm
-QMAKE_LFLAGS += -shared
+LIBS        += -lwinmm -ladvapi32
 
 include(../common/common.pri)
 

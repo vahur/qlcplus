@@ -26,9 +26,11 @@ CONFIG += link_pkgconfig
 #QTPLUGIN =
 
 INCLUDEPATH += ../audio/src ../../plugins/interfaces
-win32:LIBS  += -lwinmm
-win32:QMAKE_LFLAGS += -shared
-win32:INCLUDEPATH += ./
+win32 {
+    LIBS  += -lwinmm -ladvapi32
+    INCLUDEPATH += ./
+    CONFIG += staticlib
+}
 
 !android:!ios {
 DEPENDPATH  += ../../hotplugmonitor/src

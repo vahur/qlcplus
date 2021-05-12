@@ -1,4 +1,7 @@
 TEMPLATE = subdirs
 CONFIG  += ordered
 SUBDIRS += src
-SUBDIRS += test
+
+!win32 {
+    SUBDIRS += test
+}

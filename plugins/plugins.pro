@@ -2,9 +2,9 @@ TEMPLATE = subdirs
 
 !android:!ios {
 
- SUBDIRS              += dmxusb
- SUBDIRS              += peperoni
- SUBDIRS              += udmx
+ #SUBDIRS              += dmxusb
+ #SUBDIRS              += peperoni
+ #SUBDIRS              += udmx
  SUBDIRS              += midi
  unix {
    system(pkg-config --exists libola) {
@@ -14,8 +14,8 @@ TEMPLATE = subdirs
    }
  }
  !macx:!win32:SUBDIRS += dmx4linux
- SUBDIRS              += velleman
- SUBDIRS              += enttecwing
+ #SUBDIRS              += velleman
+ #SUBDIRS              += enttecwing
  SUBDIRS              += hid
  !macx:!win32:SUBDIRS += spi
 

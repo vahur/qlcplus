@@ -17,7 +17,7 @@ win32: INCLUDEPATH += ../../hotplugmonitor/src
 DEPENDPATH      += ../../engine/src
 QMAKE_LIBDIR    += ../../engine/src
 LIBS            += -lqlcplusengine
-win32:QMAKE_LFLAGS += -shared
+win32: CONFIG += staticlib
 
 # Types
 INCLUDEPATH += ../../plugins/interfaces
@@ -26,7 +26,7 @@ INCLUDEPATH += ../../plugins/interfaces
 INCLUDEPATH     += ../../webaccess
 
 # Resources
-RESOURCES    += qlcui.qrc
+#RESOURCES    += qlcui.qrc
 
 lessThan(QT_MAJOR_VERSION, 5) {
   macx {

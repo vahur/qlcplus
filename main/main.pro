@@ -15,6 +15,15 @@ LIBS         += -lqlcplusengine
 LIBS         += -lqlcplusui
 LIBS         += -lqlcpluswebaccess
 
+win32 {
+    QMAKE_LIBDIR += ../engine/audio/src
+    QMAKE_LIBDIR += ../hotplugmonitor/src
+    LIBS         += -lhotplugmonitor
+    LIBS         += -lqlcplusaudio
+    LIBS         += -ladvapi32 -lwinmm -luser32
+    QT           += multimedia multimediawidgets
+}
+
 win32:HEADERS += ../ui/src/debugbox.h
 macx:HEADERS += ../ui/src/debugbox.h
 
@@ -22,7 +31,7 @@ SOURCES      += main.cpp
 win32:SOURCES += ../ui/src/debugbox.cpp
 macx:SOURCES += ../ui/src/debugbox.cpp
 win32:RC_FILE = main.rc
-
+win32:RESOURCES = ../ui/src/qlcui.qrc
 win32:FORMS += ../ui/src/debugbox.ui
 macx:FORMS += ../ui/src/debugbox.ui
 

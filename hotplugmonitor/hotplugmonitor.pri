@@ -10,3 +10,7 @@ CONFIG(udev) {
 CONFIG(iokit) {
     LIBS      += -framework IOKit -framework CoreFoundation
 }
+
+CONFIG(win32) {
+    LIBS += user32.lib
+}

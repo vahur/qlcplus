@@ -28,7 +28,7 @@ lessThan(QT_MAJOR_VERSION, 5) {
 LIBS += -lqlcplusengine -lqlcplusui
 
 win32:LIBS  += -lws2_32
-win32:QMAKE_LFLAGS += -shared
+win32:CONFIG += staticlib
 win32:INCLUDEPATH += ./
 
 # qhttpserver files

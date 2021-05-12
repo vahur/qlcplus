@@ -21,6 +21,7 @@
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 #include <QDebug>
+#define _USE_MATH_DEFINES
 #include <math.h>
 
 #include "genericfader.h"

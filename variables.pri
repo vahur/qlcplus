@@ -16,7 +16,7 @@ qmlui:  APPVERSION = 5.0.0 Beta 1
 #############################################################################
 
 # Treat all compiler warnings as errors
-QMAKE_CXXFLAGS += -Werror
+#QMAKE_CXXFLAGS += -Werror
 
 CONFIG         += warn_on
 
@@ -35,14 +35,14 @@ contains(FORCECONFIG, release) {
   #DEFINES += QT_NO_DEBUG_OUTPUT
 } else {
   # Enable the following 2 lines when making a release
-  CONFIG         -= release
-#  DEFINES        += QT_NO_DEBUG_OUTPUT
+  # CONFIG         -= release
+  DEFINES        += QT_NO_DEBUG_OUTPUT
 
   # Disable this when making a release
-  CONFIG         += debug
+  #CONFIG         += debug
 }
 
-!macx:!ios: {
+!macx:!ios:!win32 {
  system( g++ --version | grep -e "4.6.[0-9]" ) {
    #message("g++ version 4.6 found")
    QMAKE_CXXFLAGS += -Wno-error=strict-overflow
@@ -66,7 +66,7 @@ greaterThan(QT_MAJOR_VERSION, 4):greaterThan(QT_MINOR_VERSION, 4) {
 win32:DESTDIR  = ./
 
 # Don't whine about some imports
-win32:QMAKE_LFLAGS += -Wl,--enable-auto-import
+#win32:QMAKE_LFLAGS += -Wl,--enable-auto-import
 
 # Enable unit test coverage measurement ('qmake CONFIG+=coverage' works, too)
 #CONFIG        += coverage
